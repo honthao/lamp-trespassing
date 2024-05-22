@@ -4,7 +4,7 @@ public class MouseRotator : MonoBehaviour
 {
     public Transform playerRb;
 
-    public float sensitivity = 80;
+    public float sensitivity;
 
     void Start()
     {

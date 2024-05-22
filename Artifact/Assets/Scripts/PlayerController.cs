@@ -17,5 +17,13 @@ public class PlayerController : MonoBehaviour
         Vector3 moveDir = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
         playerRb.transform.position += moveDir * speed * Time.deltaTime;
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Lamp"))
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
 }
 
