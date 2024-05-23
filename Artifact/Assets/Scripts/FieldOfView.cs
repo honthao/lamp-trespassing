@@ -34,7 +34,7 @@ public class FieldOfView : MonoBehaviour
                 float disToTarget = Vector3.Distance(transform.position, target.position);
                 if (!Physics.Raycast(transform.position, dirToTarget, disToTarget, obstacleMask))
                 {
-                    target.gameObject.SetActive(false);
+                    //target.gameObject.SetActive(false);
                     loseText.SetActive(true);
                 }
             }

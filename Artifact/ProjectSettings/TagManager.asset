@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Lamp
+  - YouLost
   layers:
   - Default
   - TransparentFX
