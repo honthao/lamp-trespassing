@@ -8,8 +8,7 @@ public class MouseRotator : MonoBehaviour
 
     void Start()
     {
-        // Hide cursor
-        Cursor.lockState = CursorLockMode.Locked;
+
     }
 
     // Update is called once per frame

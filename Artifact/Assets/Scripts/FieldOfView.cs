@@ -11,7 +11,8 @@ public class FieldOfView : MonoBehaviour
 
     public LayerMask targetMask;
     public LayerMask obstacleMask;
-    public GameObject loseText;
+
+    public GameOver gameOver;
 
     IEnumerator FindTargetsWithDelay(float delay)
     {
@@ -34,8 +35,7 @@ public class FieldOfView : MonoBehaviour
                 float disToTarget = Vector3.Distance(transform.position, target.position);
                 if (!Physics.Raycast(transform.position, dirToTarget, disToTarget, obstacleMask))
                 {
-                    //target.gameObject.SetActive(false);
-                    loseText.SetActive(true);
+                    gameOver.ShowResult("You lost!");
                 }
             }
         }
@@ -52,13 +52,12 @@ public class FieldOfView : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("FindTargetsWithDelay", .2f);
-        loseText.SetActive(false);
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        StartCoroutine("FindTargetsWithDelay", .2f);
     }
 }
