@@ -13,6 +13,8 @@ public class GameOver : MonoBehaviour
 
     public MainMenu mainMenu;
 
+    public PlayerController playerController;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -44,7 +46,7 @@ public class GameOver : MonoBehaviour
         playerCam.GetComponent<MouseRotator>().enabled = true;
 
         // reset player to its start position & revive enemies
-        player.transform.position = new Vector3(-2.5f, 0.5f, -1.5f);
+        playerController.Reset();
         foreach (GameObject lamp in lamps) {
             lamp.SetActive(true);
         }
