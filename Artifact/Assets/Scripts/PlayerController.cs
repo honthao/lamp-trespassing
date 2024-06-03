@@ -9,10 +9,25 @@ public class PlayerController : MonoBehaviour
 
     public TextMeshProUGUI scoreText;
 
+    public TextMeshProUGUI keyText;
+
     private int score;
+
     private int walk;
+
+    private bool foundKey;
+
     AudioSource deathSound;
+
     AudioSource walkSound;
+
+    private GameObject key;
+
+    public GameObject door;
+
+    public GameObject doorText;
+
+    public GameOver gameOver;
 
     // Start is called before the first frame update
     private void Start()
@@ -20,6 +35,8 @@ public class PlayerController : MonoBehaviour
         playerRb = GetComponent<Rigidbody>();
         score = 0;
         scoreText.text =  "Score: 0";
+        keyText.text = "Key: <color=red>Not Found</color>";
+        foundKey = false;
         AudioSource[] audios = GetComponents<AudioSource>();
         deathSound = audios[0];
         walkSound = audios[1];
@@ -42,13 +59,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Lamp"))
-        {
+        if (other.gameObject.CompareTag("Lamp")) {
             other.gameObject.SetActive(false);
             score += 1;
             scoreText.text =  "Score: " + score.ToString();
             deathSound.Play();
-            
+        } else if (other.gameObject.CompareTag("Key")) {
+            foundKey = true;
+            key = other.gameObject;
+            key.SetActive(false);
+            keyText.text = "Key: <color=green>Found</color>";
+            door.transform.localRotation = Quaternion.Euler(0, -35, 0);
+            doorText.SetActive(false);
+        } else if (other.gameObject.CompareTag("Doormat") && foundKey) {
+            gameOver.ShowResult("You win!");
         }
     }
 
@@ -56,7 +80,15 @@ public class PlayerController : MonoBehaviour
     {
         score = 0;
         scoreText.text =  "Score: 0";
-        transform.position = new Vector3(-2.5f, 0.5f, -1.5f);
+        transform.position = new Vector3(-3.9f, 0.5f, -1.8f);
+        foundKey = false;
+        keyText.text = "Key: <color=red>Not Found</color>";
+        if (key) {
+            key.SetActive(true);
+        }
+        door.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        doorText.SetActive(true);
+        walk = 0;
     }
 }
 
