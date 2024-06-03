@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
             key = other.gameObject;
             key.SetActive(false);
             keyText.text = "Key: <color=green>Found</color>";
-            door.transform.localRotation = Quaternion.Euler(0, -35, 0);
+            door.transform.localRotation = Quaternion.Euler(0, -35, 0); // open door
             doorText.SetActive(false);
         } else if (other.gameObject.CompareTag("Doormat") && foundKey) {
             gameOver.ShowResult("You win!");
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
         if (key) {
             key.SetActive(true);
         }
-        door.transform.localRotation = Quaternion.Euler(0, 0, 0);
+        door.transform.localRotation = Quaternion.Euler(0, 0, 0); // close door
         doorText.SetActive(true);
         walk = 0;
     }

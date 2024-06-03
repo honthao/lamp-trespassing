@@ -6,11 +6,6 @@ public class MouseRotator : MonoBehaviour
 
     public float sensitivity;
 
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {

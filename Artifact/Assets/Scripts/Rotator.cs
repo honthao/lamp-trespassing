@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class Rotator : MonoBehaviour
@@ -36,7 +32,7 @@ public class Rotator : MonoBehaviour
             {
                 rotation -= 3;
             }
-            
+
             if(rotation >= 360)
             {
                 rotation = 0;
