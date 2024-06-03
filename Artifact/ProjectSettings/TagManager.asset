@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lamp
   - YouLost
+  - LampXray
   layers:
   - Default
   - TransparentFX
@@ -15,8 +16,8 @@ TagManager:
   - UI
   - Obstacles
   - Player
-  - 
-  - 
+  - Xray
+  - Door
   - 
   - 
   - 

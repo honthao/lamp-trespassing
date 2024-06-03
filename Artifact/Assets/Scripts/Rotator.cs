@@ -11,23 +11,25 @@ public class Rotator : MonoBehaviour
     bool moving;
     int rotation;
     int direction;
+    int magnitude;
     public GameObject model;
     void Start()
     {
         phase = 0;
-        rotation = 0;
         moving = true;
         direction = Random.Range(0, 2);
+        magnitude = (int)model.transform.position.magnitude * 37;
+        rotation = magnitude % 4 * 90;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+
         phase += 1;
         if (moving)
         {
-            print(direction);
-            if(direction == 0)
+            if(magnitude % 2 == 0)
             {
                 rotation += 3;
             } else

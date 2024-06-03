@@ -58,6 +58,6 @@ public class FieldOfView : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine("FindTargetsWithDelay", .2f);
+        /*StartCoroutine("FindTargetsWithDelay", .2f);*/
     }
 }
