@@ -5,40 +5,34 @@
 - Darius: dduciuc@cs.washington.edu
 - Aaron: flaaroni@cs.washington.edu
 
-### High level description
-A first-person stealth game in a maze setting. The maze will have rooms, hallways, and doors for the player to explore. The player must navigate from their entry point to an exit without being seen by any enemies. Enemies have a fixed position, but a rotating cone of vision. If a player is within any enemy’s cone of vision and there are no walls between them, then the player is “seen” and they lose. If the player can get close to an enemy without being seen, they can deactivate/cause the enemy to disappear to make it easier to continue on their path. The user will move the player/deactivate enemies using keyboard navigation.
+### High Level Description
+We built a 1st person POV stealth game, where the player has to navigate a maze without being seen by any enemy lamps. If the player comes too close to a lamp facing them, they’ll lose the game. If they’re able to sneak up on the lamp without being seen, they can disable it and add to their score. Once a player has found the key in the map and found the exit door, they’ll be able to complete the level. The objective is to complete the level while maximizing their score.
 
-### Feature list
-- A player that can move around the setting, with the objective of getting from point A to point B
-- A maze-like setting with walls and rooms, with an entry and exit point
-- Enemies with rotating point of view for the player to avoid. Enemies disappear if the player can touch them without being seen
-- Keyboard navigation (WASD) for the player
-- 1st person POV camera following the player’s movements
-- Special lighting where lights aren’t blocked by walls/objects except enemy material. Allows player to view enemies even if there's a wall between them (if we have time)
+### Feature List
+- A first person POV camera.
+- Keyboard and mouse navigation for the player - WASD to move and panning with the mouse to change the viewpoint.
+- Rotating enemy lamps dispersed throughout the level with field of view detection - if the player comes within a certain radius while the lamp is facing them, they’ll lose the game.
+- A “lose” or “win” screen depending on the player’s outcome where the scene freezes and the player is offered the options to restart the game or go back to the main menu.
+- The ability to disable enemy lamps by colliding with them.
+- Score tracking throughout the game - your score increases by 1 every time you disable a lamp. Lamps do not respawn.
+- A maze level made up of brick walls.
+- A collectible key hidden in the maze needed for the win condition.
+- An exit door to complete the level.
+- A main menu to begin the game and to provide instructions on how to play the game.
+- An original soundtrack and sound effects
+- X-ray vision that allows the player to see the lighting of the lamps behind walls.
 
-### Team assignments
+### Assets/Models from Unity Asset Store:
+- Lamps
+- Bricks (i.e. wall textures)
+- Key
+- Trees
+- Wooden stacks
+- Barrels/Canisters
+- Torches
+
+### Team Assignments
 - Maya: Enemy design & animation, cone-of-vision detection
-- Thao: Player design & animation, keyboard navigation
-- Darius: Lighting, level design, win/lose mechanics
-- Aaron: Lighting, level design, sound design
-
-### Development plan
-- Design the maze setting, enemies, and the player characters.
-- Player animation and navigation with the keyboard.
-- Player & enemy interaction (enemy disappears when touch)
-- Enemy animation and rotating cone of vision.
-- Detecting player exit/win condition - getting to a point in the maze without being seen.. 
-- Detecting the lose condition - when a player is seen by an enemy.
-- Stretch goal: Implementing special lighting - where light isn’t blocked by walls and objects (except for enemies).
-
-### Checkpoint
-- Have a basic maze setting and character designs.
-- Complete player movement
-- Finish player and enemy interaction
-
-### Materials and any external help needed 
-- We may or may not require some assets from the unity asset store - depending on the final design of the level, players, and enemies.
-
-### Key Risks and Mitigations
-- If the lose condition is too difficult to implement, we can switch to a simpler condition just based on whether the player is within a certain radius to the enemy.
-Reduce the size of the map, and less enemies
+- Thao: Player design & navigation, score & key tracking, UI components/menus, lose/win & restart game mechanics
+- Darius: Debugging, programming, asset finding, level design
+- Aaron: X-ray vision lighting, level design, sound design, rotation animation
